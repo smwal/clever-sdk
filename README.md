@@ -1,11 +1,6 @@
 # Clever API Python Module
 This repository contains a Python module for interacting with the Clever Data API. It allows for seamless integration with Clever’s data systems, enabling operations like retrieving user, classroom, and school data.
 
-## Features
-
-Access Clever API: Easily connect to and retrieve data from the Clever API.
-Data Retrieval: Supports fetching data related to students, teachers, classes, and schools.
-
 ## Installation
 
 Clone the repository:
