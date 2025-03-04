@@ -1,0 +1,23 @@
+{
+    "data": [
+        {
+            "data": {
+                "district": "6385008f69df036e83e984a3",
+                "name": "Class 801, Homeroom",
+                "number": "801",
+                "id": "63850203bfb8460546071e97"
+            },
+            "uri": "/v3.0/courses/63850203bfb8460546071e97"
+        }
+    ],
+    "links": [
+        {
+            "rel": "self",
+            "uri": "/v3.0/courses?limit=1"
+        },
+        {
+            "rel": "next",
+            "uri": "/v3.0/courses?limit=1&starting_after=63850203bfb8460546071e97"
+        }
+    ]
+}

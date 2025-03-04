@@ -1,0 +1,45 @@
+{
+    "links": [
+        {
+            "rel": "self",
+            "uri": "/v3.0/users?limit=1&role=staff"
+        },
+        {
+            "rel": "next",
+            "uri": "/v3.0/users?limit=1&role=staff&starting_after=63850203bfb8460546071eef"
+        }
+    ],
+    "data": [
+        {
+            "data": {
+                "created": "2022-11-28T18:46:36.799Z",
+                "district": "6385008f69df036e83e984a3",
+                "email": "coffeeaddict@aol.com",
+                "last_modified": "2022-11-28T18:46:36.799Z",
+                "name": {
+                    "first": "Lucy",
+                    "last": "Freemont"
+                },
+                "id": "63850203bfb8460546071eef",
+                "roles": {
+                    "staff": {
+                        "credentials": {
+                            "district_username": "coffeeaddict@aol.com"
+                        },
+                        "department": "",
+                        "roles": [
+                            "PortalOnly"
+                        ],
+                        "schools": [
+                            "63850203bfb8460546071e5f"
+                        ],
+                        "staff_id": "12342",
+                        "title": "Principal",
+                        "legacy_id": "63850203bfb8460546071ee2"
+                    }
+                }
+            },
+            "uri": "/v3.0/users/63850203bfb8460546071eef"
+        }
+    ]
+}

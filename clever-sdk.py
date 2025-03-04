@@ -84,18 +84,34 @@ class Users(CleverResource):
     def __init__(self, client: CleverAPIClient):
         super().__init__(client, "users")
 
-# Function to save responses to JSON files
-def save_response_to_file(data, filename):
-    """Save API response data to a formatted JSON file only if it contains data."""
+    def get_all(self, limit=1, starting_after=None, role=None):
+        params = {"limit": limit}
+        if starting_after:
+            params["starting_after"] = starting_after
+        if role:
+            params["role"] = role  # Include 'role' as an optional query parameter
+        return self.client.request("GET", f"/{self.resource}", params=params)
+
+# Function to save responses as JSON files in output folder
+def save_response_to_file(data, filename, folder="output"):
+    """Save API response data to a formatted JSON file in a specified folder."""
     try:
-        if not data or "data" not in data or not data["data"]:  # Check if 'data' field is empty or missing
+        # Check if the folder exists, create it if it doesn't
+        if not os.path.exists(folder):
+            os.makedirs(folder)
+        
+        # Check if 'data' field is empty or missing
+        if not data or "data" not in data or not data["data"]:
             logging.warning(f"No data returned for {filename}. Skipping file save.")
             return
         
-        filepath = os.path.join(os.getcwd(), filename) # Save in the current directory
+        # Define the full file path
+        filepath = os.path.join(folder, filename)
+        
+        # Save the data to the file
         with open(filepath, "w", encoding="utf-8") as f:
-            json.dump(data, f, indent=4)  # Make the json file readable
-        logging.info(f"Response saved to {filename}")
+            json.dump(data, f, indent=4)  # Pretty-print JSON
+        logging.info(f"Response saved to {filepath}")
     
     except Exception as e:
         logging.error(f"Error saving response to file: {e}")
@@ -103,6 +119,10 @@ def save_response_to_file(data, filename):
 # Example usage
 if __name__ == "__main__":
     token = os.getenv("CLEVER_API_TOKEN")
+    
+    # Ask for role input or specify "n" for a single user
+    user_role = input("Enter user role (student, teacher, staff, or district_admin) or 'n' for a single user: ").strip().lower()
+
     if not token:
         logging.error("CLEVER_API_TOKEN is not set.")
         exit(1)
@@ -117,9 +137,24 @@ if __name__ == "__main__":
         "users": Users(client),
     }
 
+    # Specify the folder where the JSON files should be saved
+    output_folder = "output_data"  # Change this to any folder name you prefer
+
     for resource_name, api_obj in api_objects.items():
         try:
-            data = api_obj.get_all(limit=1)
-            save_response_to_file(data, f"{resource_name}.json")
+            # Fetch users with the role if provided, or fetch a single user if "n" is entered
+            if resource_name == "users":
+                if user_role == "n":
+                    # If the user input is "n", fetch a single user (without passing the role parameter)
+                    data = api_obj.get_all(limit=1)
+                else:
+                    # Otherwise, fetch users with the specified role
+                    data = api_obj.get_all(limit=1, role=user_role)
+            else:
+                # For other resources, no role filter is applied
+                data = api_obj.get_all(limit=1)
+            
+            # Save the response to the specified folder
+            save_response_to_file(data, f"{resource_name}.json", folder=output_folder)
         except Exception as e:
             logging.error(f"Failed to fetch {resource_name}: {e}")

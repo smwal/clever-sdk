@@ -1,0 +1,43 @@
+{
+    "data": [
+        {
+            "data": {
+                "district_contact": {
+                    "district": "6385008f69df036e83e984a3",
+                    "email": "painstaking-notebook-5376@clever.com",
+                    "name": {
+                        "first": "Jane",
+                        "last": "Smith"
+                    },
+                    "title": "",
+                    "id": "63850203bfb8460546071ef5"
+                },
+                "error": "",
+                "last_sync": "2024-11-15T20:49:48.769Z",
+                "launch_date": "2022-11-28",
+                "login_methods": [
+                    "Clever Badges",
+                    "Clever Passwords"
+                ],
+                "name": "#DEMO Grand Line (Dev) Sandbox",
+                "pause_end": "2024-07-27",
+                "pause_start": "2024-07-25",
+                "portal_url": "https://clever.com/in/generous-chair-7460",
+                "sis_type": "sftp",
+                "state": "running",
+                "id": "6385008f69df036e83e984a3"
+            },
+            "uri": "/v3.0/districts/6385008f69df036e83e984a3"
+        }
+    ],
+    "links": [
+        {
+            "rel": "self",
+            "uri": "/v3.0/districts?limit=1"
+        },
+        {
+            "rel": "next",
+            "uri": "/v3.0/districts?limit=1&starting_after=6385008f69df036e83e984a3"
+        }
+    ]
+}

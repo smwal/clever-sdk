@@ -1,0 +1,39 @@
+{
+    "links": [
+        {
+            "rel": "self",
+            "uri": "/v3.0/sections?limit=1"
+        },
+        {
+            "rel": "next",
+            "uri": "/v3.0/sections?limit=1&starting_after=63850203bfb8460546071ed3"
+        }
+    ],
+    "data": [
+        {
+            "data": {
+                "course": "63850203bfb8460546071e9d",
+                "created": "2022-11-28T18:46:36.670Z",
+                "district": "6385008f69df036e83e984a3",
+                "grade": "8",
+                "last_modified": "2022-11-28T18:46:36.670Z",
+                "name": "English, Class 801 - Schneider - 8",
+                "period": "8",
+                "school": "63850203bfb8460546071e60",
+                "section_number": "",
+                "sis_id": "664",
+                "students": [
+                    "63850203bfb8460546071e6a"
+                ],
+                "subject": "english/language arts",
+                "teacher": "63850203bfb8460546071eeb",
+                "teachers": [
+                    "63850203bfb8460546071eeb"
+                ],
+                "term_id": "63850203bfb8460546071e93",
+                "id": "63850203bfb8460546071ed3"
+            },
+            "uri": "/v3.0/sections/63850203bfb8460546071ed3"
+        }
+    ]
+}
