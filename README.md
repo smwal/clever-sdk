@@ -30,7 +30,7 @@ If you would like to test the SDK, you can run the following command in the venv
 python clever-sdk.py
 ```
 
-This will run the #Example Usage section of the script to pull some data associated with your District-App Token (CLEVER_API_TOKEN in your .env file).
+This will run the #Example Usage section of the script to pull some data associated with your District-App Token (CLEVER_API_TOKEN in your .env file). You will find the .json files in the output_data folder. Subsequent tests will overwrite any existing data in these files.
 
 
 ### Import the module and start using it:
